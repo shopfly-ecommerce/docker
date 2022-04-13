@@ -5,12 +5,14 @@ services:
     image: shopflix/api:1.0.0
     ports:
       - 8080:8080
-    restart: unless-stopped
+    restart: unless-stopped    
     depends_on:
       - db
       - redis
       - mq
       - es    
+    volumes:
+      - ./images:/opt/images
     networks:
       - shopflix-backend-tier
 
@@ -61,6 +63,8 @@ services:
       - shopflix-backend-tier
     volumes:
       - shopflix-mq:/var/lib/rabbitmq
+
+
 
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.23

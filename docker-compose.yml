@@ -28,6 +28,18 @@ services:
     networks:
       - shopflix-backend-tier
 
+  dashboard:
+    image:  shopflix/dashboard:1.0.0
+    ports:
+      - 82:80
+    restart: unless-stopped
+    depends_on:
+      - api          
+    env_file:
+      - backend.env
+    networks:
+      - shopflix-backend-tier
+
 
   db:
     image: mysql:8.0.28

@@ -16,15 +16,17 @@ services:
     networks:
       - shopflix-backend-tier
 
-  # storefront:
-  #   image:  shopflix/vue-storefront:1.0.0
-  #   ports:
-  #     - 3000:3000
-  #   restart: unless-stopped
-  #   env_file:
-  #     - backend.env
-  #   networks:
-  #     - shopflix-backend-tier
+  storefront:
+    image:  shopflix/vue-storefront:1.0.0
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    depends_on:
+      - api      
+    env_file:
+      - backend.env
+    networks:
+      - shopflix-backend-tier
 
 
   db:

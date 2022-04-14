@@ -31,7 +31,7 @@ services:
   dashboard:
     image:  shopflix/dashboard:1.0.0
     ports:
-      - 82:80
+      - 3002:80
     restart: unless-stopped
     depends_on:
       - api          

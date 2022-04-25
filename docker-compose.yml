@@ -19,7 +19,7 @@ services:
   storefront:
     image:  shopflix/vue-storefront:1.0.0
     ports:
-      - 3000:3000
+      - 3000:80
     restart: unless-stopped
     depends_on:
       - api      

@@ -35,8 +35,8 @@ services:
     restart: unless-stopped
     depends_on:
       - api          
-    env_file:
-      - backend.env
+    # env_file:
+    #   - backend.env
     networks:
       - shopflix-backend-tier
 
